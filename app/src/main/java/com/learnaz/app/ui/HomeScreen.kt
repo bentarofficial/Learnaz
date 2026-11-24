@@ -49,6 +49,7 @@ fun HomeScreen(progress: Progress, refresh: Int, go: (Screen) -> Unit) {
                     Stat("🧠", "$learned/${Content.allWords.size} từ", Modifier.weight(1f))
                 }
             }
+            item { UpdateBanner() }
             item { Section("💬 Tán gẫu với Mèo Lầy") }
             items(Content.stories) { s ->
                 MenuCard(s.emoji, s.title, "${s.turns.size} lượt thoại") { go(Screen.Chat(s)) }

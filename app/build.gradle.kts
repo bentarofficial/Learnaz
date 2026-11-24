@@ -12,13 +12,25 @@ android {
         applicationId = "com.learnaz.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        // CI truyền số lần build vào để mỗi bản phát hành có số phiên bản tăng dần.
+        val build = (System.getenv("BUILD_NUMBER") ?: "1").toInt()
+        versionCode = build
+        versionName = "1.0.$build"
+    }
+    // Mọi bản phải ký cùng một khoá thì Android mới cho cài đè (cập nhật).
+    val ksFile = System.getenv("KEYSTORE_FILE")
+    signingConfigs {
+        if (ksFile != null) create("release") {
+            storeFile = file(ksFile)
+            storePassword = System.getenv("KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("KEY_ALIAS")
+            keyPassword = System.getenv("KEY_PASSWORD")
+        }
     }
     buildTypes {
         release {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -26,7 +38,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions { jvmTarget = "17" }
-    buildFeatures { compose = true }
+    buildFeatures { compose = true; buildConfig = true }
 }
 
 dependencies {

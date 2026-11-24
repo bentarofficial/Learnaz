@@ -31,7 +31,13 @@ Các lựa chọn khả thi:
 | A. Người dùng dán **API key** của Anthropic (console.anthropic.com) | Làm nhanh, không cần máy chủ | Người dùng phải có key và tự trả phí; lưu key an toàn bằng EncryptedSharedPreferences/Keystore |
 | B. **Máy chủ riêng** giữ API key, app đăng nhập bằng tài khoản Learnaz | Trải nghiệm dễ nhất, kiểm soát chi phí | Phải vận hành backend và chịu chi phí API |
 
-Đề xuất: làm **A** để thử nghiệm, sau đó chuyển sang **B** khi có người dùng thật.
+**C. Dùng tài khoản Claude Pro có sẵn (không cần API) – ưu tiên làm trước:**
+Nút "Học với Claude" soạn sẵn lời nhắc đóng vai Mèo Lầy (chủ đề, từ đang học, yêu cầu sửa lỗi kiểu hài hước)
+rồi mở **app Claude chính thức** bằng Intent chia sẻ (`ACTION_SEND` tới `com.anthropic.claude`).
+Mọi cuộc trò chuyện chạy trong app Claude bằng gói Pro của bạn. Đây là cách hợp lệ, vì Learnaz không đăng nhập hộ và không lấy cookie.
+Hạn chế: Learnaz không đọc được câu trả lời, nên không cộng XP tự động hay đọc bằng VieNeu.
+
+Đề xuất: làm **C** ngay, sau đó làm **A** để thử nghiệm, sau đó chuyển sang **B** khi có người dùng thật.
 
 Tính năng AI:
 - Chat tự do theo vai (khách hàng khó tính, sếp, crush...) với system prompt "Mèo Lầy"
