@@ -10,7 +10,10 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import com.learnaz.app.data.AiSettings
 import com.learnaz.app.data.Progress
+import com.learnaz.app.ui.AiChatScreen
+import com.learnaz.app.ui.AiSettingsScreen
 import com.learnaz.app.data.Speaker
 import com.learnaz.app.ui.ChatScreen
 import com.learnaz.app.ui.FlashcardScreen
@@ -27,6 +30,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         speaker = Speaker(this)
         val progress = Progress(this)
+        val aiSettings = AiSettings(this)
 
         setContent {
             LearnazTheme {
@@ -42,6 +46,8 @@ class MainActivity : ComponentActivity() {
                     is Screen.Flashcards -> FlashcardScreen(s.topic, progress, speaker, goHome)
                     Screen.Quiz -> QuizScreen(progress, speaker, goHome)
                     is Screen.Chat -> ChatScreen(s.story, progress, speaker, goHome)
+                    Screen.AiChat -> AiChatScreen(aiSettings, progress, speaker, goHome) { screen = Screen.AiSettings }
+                    Screen.AiSettings -> AiSettingsScreen(aiSettings, goHome)
                 }
             }
         }

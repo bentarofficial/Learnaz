@@ -21,7 +21,13 @@ Tinh thần: **vừa học vừa tán gẫu tếu táo với Mèo Lầy 🐱 –
   2. **Máy chủ riêng** chạy VieNeu-TTS cho câu do AI sinh ra → cần GPU/CPU server, có độ trễ.
 - Việc cần làm: kiểm tra giấy phép sử dụng, dung lượng model, chất lượng trên điện thoại tầm trung, thử bản nhỏ/lượng tử hoá chạy thẳng trên máy.
 
-## 🔜 Giai đoạn 2 – Kết nối Claude để học với AI
+## ✅ Giai đoạn 2a – Mèo AI qua Kyma API (đã có)
+- Màn **Kết nối AI**: nhập key Kyma (`kyma-...`), tải danh sách model từ `/v1/models`, chọn model (mặc định `claude-sonnet-4-5`)
+- Màn **Chém gió với Mèo AI**: chat tự do, Mèo sửa lỗi kiểu "✏️ Sửa: ..." bằng tiếng Việt, dạy từ mới, chạm để nghe đọc
+- Gọi `https://kymaapi.com/v1/chat/completions` (chuẩn OpenAI)
+- Việc tiếp: mã hoá key bằng Android Keystore, giới hạn độ dài lịch sử chat để tiết kiệm tiền
+
+## 🔜 Giai đoạn 2b – Mở rộng AI
 Mục tiêu: mở app → kết nối Claude → Mèo Lầy trò chuyện tự do, sửa lỗi tiếng Anh một cách hài hước.
 
 **Lưu ý quan trọng:** tài khoản Claude.ai (gói Free/Pro) hiện **không có cách đăng nhập chính thức để app bên thứ ba dùng**.

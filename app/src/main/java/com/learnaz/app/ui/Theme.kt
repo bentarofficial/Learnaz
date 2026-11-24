@@ -14,6 +14,8 @@ sealed interface Screen {
     data class Flashcards(val topic: Topic) : Screen
     data object Quiz : Screen
     data class Chat(val story: Story) : Screen
+    data object AiChat : Screen
+    data object AiSettings : Screen
 }
 
 val Good = Color(0xFF2E9E5B)

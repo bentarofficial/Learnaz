@@ -50,6 +50,9 @@ fun HomeScreen(progress: Progress, refresh: Int, go: (Screen) -> Unit) {
                 }
             }
             item { UpdateBanner() }
+            item { Section("🤖 Mèo AI") }
+            item { MenuCard("😹", "Chém gió tự do với Mèo AI", "Gõ gì cũng được, Mèo sửa lỗi kiểu lầy") { go(Screen.AiChat) } }
+            item { MenuCard("⚙️", "Kết nối AI (Kyma API)", "Nhập key và chọn model") { go(Screen.AiSettings) } }
             item { Section("💬 Tán gẫu với Mèo Lầy") }
             items(Content.stories) { s ->
                 MenuCard(s.emoji, s.title, "${s.turns.size} lượt thoại") { go(Screen.Chat(s)) }
